@@ -1,0 +1,26 @@
+module Decoder_3to8(
+    input a0,
+    input a1,
+    input a2,
+    input E,
+    output Y0,
+    output Y1,
+    output Y2,
+    output Y3,
+    output Y4,
+    output Y5,
+    output Y6,
+    output Y7
+    );
+    wire a0bar,a1bar,a2bar;
+    assign a0bar = ~a0, a1bar = ~a1, a2bar = ~a2;
+    assign Y0 = a0bar&a1bar&a2bar&E;
+    assign Y1 = a0&a1bar&a2bar&E;
+    assign Y2 = a0bar&a1&a2bar&E;
+    assign Y3 = a0&a1&a2bar&E;
+    assign Y4 = a0bar&a1bar&a2&E;
+    assign Y5 = a0&a1bar&a2&E;
+    assign Y6 = a0bar&a1&a2&E;
+    assign Y7 = a0&a1&a2&E;
+    
+endmodule
